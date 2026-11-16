@@ -1,0 +1,64 @@
+
+# Python sanal ortamlar
+.venv/
+venv/
+env/
+
+# Python gecici dosyalari
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# IDE ayarlari
+.vscode/
+.idea/
+
+# Ortam degiskenleri ve gizli bilgiler
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Isletim sistemi dosyalari
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# LLVIP ham veri seti
+/data/raw/
+/data/downloads/
+
+# Uretilmis ara veriler ve etiketler
+/data/processed/*
+!/data/processed/final_split.csv
+
+# Analiz loglari ve grafik ciktisi
+/outputs/logs/
+/outputs/figures/
+/outputs/cache/
+
+# Model egitim ciktisi (final asamasi)
+/runs/
+/wandb/
+/mlruns/
+/weights/
+/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Buyuk sikistirilmis veri arsivleri
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+
+# Genel log dosyalari
+*.log

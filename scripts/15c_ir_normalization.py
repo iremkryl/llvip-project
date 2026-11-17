@@ -22,7 +22,7 @@ data/raw/LLVIP_extracted/infrared/
 
 CIKTI:
 outputs/logs/step15c_ir_sample_stats.csv
-outputs/figures/fig34_ir_normalization_before_after.png
+outputs/figures/fig34_ir_normalization_before_after_en.png
 Terminal: Kanal ve normalizasyon istatistikleri.
 """
 
@@ -171,12 +171,12 @@ for split in ["train", "test"]:
     )
 
     examples.append(
-        (split, "Dusuk IR yogunlugu",
+        (split, "Low IR intensity",
          split_examples[0])
     )
 
     examples.append(
-        (split, "Yuksek IR yogunlugu",
+        (split, "High IR intensity",
          split_examples[-1])
     )
 
@@ -207,7 +207,7 @@ for split in ["train", "test"]:
     print(f"\n===== {split.upper()} OZET =====")
 
     print(
-        f"Ham IR ortalama yogunluk: "
+        f"RAW IR ortalama yogunluk: "
         f"{sub['raw_mean'].mean():.2f}"
     )
 
@@ -217,7 +217,7 @@ for split in ["train", "test"]:
     )
 
     print(
-        f"Ham IR standart sapma medyani: "
+        f"RAW IR standart sapma medyani: "
         f"{sub['raw_std'].median():.2f}"
     )
 
@@ -227,7 +227,7 @@ for split in ["train", "test"]:
     )
 
     print(
-        f"Ham kirpilmis piksel orani ort.: "
+        f"RAW kirpilmis piksel orani ort.: "
         f"%{sub['raw_clipped_pct'].mean():.2f}"
     )
 
@@ -262,17 +262,17 @@ for i, (split, label, ex) in enumerate(examples):
 
     axes[i, 0].set_title(
         f"{split.upper()} / {label}\n"
-        f"{ex['stem']} - HAM\n"
-        f"Ortalama={stats['raw_mean']:.1f}",
+        f"{ex['stem']} - RAW\n"
+        f"Mean={stats['raw_mean']:.1f}",
         fontsize=10
     )
 
     axes[i, 1].set_title(
-        f"{ex['stem']} - NORMALIZE\n"
+        f"{ex['stem']} - NORMALIZED\n"
         f"p1={stats['raw_p1']:.1f} | "
         f"p99={stats['raw_p99']:.1f}\n"
-        f"Kirpilan=%"
-        f"{stats['normalized_clipped_pct']:.1f}",
+        f"Clipped=%"
+        f"{stats['normalized_clipped_pct']:.1f}%",
         fontsize=10
     )
 
@@ -280,15 +280,15 @@ for i, (split, label, ex) in enumerate(examples):
         ax.axis("off")
 
 fig.suptitle(
-    "IR Yogunluk Normalizasyonu: Once / Sonra\n"
-    "Goruntu bazli yuzdelik esnetme (p1-p99)",
+    "IR Intensity Normalization: Before and After\n"
+    "Per-image percentile stretching (p1-p99)",
     fontsize=14
 )
 
 plt.tight_layout(rect=[0, 0, 1, 0.95])
 
 fig_path = (
-    FIG / "fig34_ir_normalization_before_after.png"
+    FIG / "fig34_ir_normalization_before_after_en.png"
 )
 
 plt.savefig(fig_path, dpi=150)

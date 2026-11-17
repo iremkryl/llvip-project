@@ -194,12 +194,13 @@ def main() -> None:
                 ax.add_patch(patches.Rectangle(
                     (r.xmin, r.ymin), r.w, r.h,
                     fill=False, edgecolor="red", linewidth=1.3))
-            ax.set_title(f"{'RGB' if i == 0 else 'IR'} {split}/{s} ({len(b)} kutu)",
+            ax.set_title(f"{'RGB' if i == 0 else 'IR'} {split}/{s} ({len(b)} boxes)",
                          fontsize=9)
             ax.axis("off")
     plt.tight_layout()
-    plt.savefig(FIG / "fig02_box_overlay.png", dpi=150)
-    print("\nGorsel kaydedildi: outputs/figures/fig02_box_overlay.png")
+    plt.savefig(FIG / "fig02_box_overlay_en.png", dpi=150)
+    plt.close(fig)
+    print("\nGorsel kaydedildi: outputs/figures/fig02_box_overlay_en.png")
     print("Secilen:", picks)
 
 

@@ -74,17 +74,17 @@ for ax, split in zip(axes, ["train", "test"]):
     pearson = subset["rgb_mean"].corr(subset["ir_mean"], method="pearson")
 
     ax.set_title(f"{split.upper()} - Pearson r = {pearson:.3f}")
-    ax.set_xlabel("RGB ortalama parlaklik")
-    ax.set_ylabel("IR ortalama yogunluk")
+    ax.set_xlabel("RGB Mean Brightness")
+    ax.set_ylabel("IR Mean Intensity")
     ax.set_xlim(0, 160)
     ax.set_ylim(0, 140)
 
     cbar = plt.colorbar(hb, ax=ax)
-    cbar.set_label("Goruntu sayisi")
+    cbar.set_label("Number of Images")
 
 plt.tight_layout()
 
-path = FIG / "fig24_rgb_ir_relationship.png"
+path = FIG / "fig24_rgb_ir_relationship_en.png"
 plt.savefig(path, dpi=160)
 plt.close()
 

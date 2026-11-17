@@ -81,24 +81,24 @@ for split, offset in [
         x + offset,
         percentages,
         width=width,
-        label=f"{split.upper()} ({len(values)} goruntu)",
+        label=f"{split.upper()} ({len(values)} images)",
         alpha=0.8
     )
 
 ax.set_title(
-    "Goruntu Basina Insan Sayisi - Train/Test",
+    "Person Annotations per Image - Train/Test",
     fontsize=14
 )
 
-ax.set_xlabel("Goruntudeki insan etiketi sayisi")
-ax.set_ylabel("Goruntulerin orani (%)")
+ax.set_xlabel("Number of Person Annotations")
+ax.set_ylabel("Percentage of Images (%)")
 ax.set_xticks(x)
 ax.legend()
 ax.grid(axis="y", alpha=0.2)
 
 plt.tight_layout()
 
-path = FIG / "fig21_person_count_by_split.png"
+path = FIG / "fig21_person_count_by_split_en.png"
 plt.savefig(path, dpi=160)
 plt.close()
 

@@ -1,4 +1,3 @@
-
 """
 EDA 06 - RGB/IR ORNEKLERI VE PIKSEL DAGILIMI
 
@@ -75,9 +74,9 @@ for split in ["train", "test"]:
     used = set()
 
     for q, label in [
-        (0.10, "Dusuk"),
-        (0.50, "Orta"),
-        (0.90, "Yuksek")
+        (0.10, "Low RGB Brightness"),
+        (0.50, "Medium RGB Brightness"),
+        (0.90, "High RGB Brightness")
     ]:
         target = subset["rgb_mean"].quantile(q)
 
@@ -129,7 +128,7 @@ axes[1, 0].set_ylabel("IR", fontsize=12)
 
 plt.tight_layout()
 
-path1 = FIG / "fig25_paired_rgb_ir_samples.png"
+path1 = FIG / "fig25_paired_rgb_ir_samples_en.png"
 plt.savefig(path1, dpi=150)
 plt.close()
 
@@ -220,7 +219,7 @@ for ax, split in zip(axes, ["train", "test"]):
 
 plt.tight_layout()
 
-path2 = FIG / "fig26_pixel_distributions.png"
+path2 = FIG / "fig26_pixel_distributions_en.png"
 plt.savefig(path2, dpi=150)
 plt.close()
 

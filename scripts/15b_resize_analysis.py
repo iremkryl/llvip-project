@@ -413,13 +413,13 @@ for i, ex in enumerate(examples):
     )
 
 fig.suptitle(
-    "Gercek Boyutlandirma: Once ve Sonra",
+    "Actual Image Resizing: Before and After",
     fontsize=15
 )
 
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 
-fig32 = FIG / "fig32_resize_before_after.png"
+fig32 = FIG / "fig32_resize_before_after_en.png"
 
 plt.savefig(fig32, dpi=160)
 plt.close()
@@ -528,13 +528,13 @@ for i, ex in enumerate(tiny_examples):
     )
 
 fig.suptitle(
-    "Kucuk Hedeflerde Boyutlandirma Etkisi",
+    "Effect of Resizing on Small Objects",
     fontsize=14
 )
 
 plt.tight_layout(rect=[0, 0, 1, 0.94])
 
-fig33 = FIG / "fig33_small_target_zoom.png"
+fig33 = FIG / "fig33_small_target_zoom_en.png"
 
 plt.savefig(fig33, dpi=160)
 plt.close()

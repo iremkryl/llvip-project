@@ -97,9 +97,9 @@ print(f"Oran: {small.mean() * 100:.3f}%")
 fig, axes = plt.subplots(1, 3, figsize=(18, 5))
 
 features = [
-    ("w", "Kutu Genisligi", "Piksel"),
-    ("h", "Kutu Yuksekligi", "Piksel"),
-    ("area_pct", "Goruntuye Gore Kutu Alani", "Alan (%)")
+    ("w", "Bounding Box Width", "Pixels"),
+    ("h", "Bounding Box Height", "Pixels"),
+    ("area_pct", "Relative Bounding Box Area", "Area (%)")
 ]
 
 for ax, (column, title, xlabel) in zip(axes, features):
@@ -125,13 +125,13 @@ for ax, (column, title, xlabel) in zip(axes, features):
 
     ax.set_title(title)
     ax.set_xlabel(xlabel)
-    ax.set_ylabel("Kutularin orani (% / aralik)")
+    ax.set_ylabel("Percentage of Boxes (% per bin)")
     ax.legend()
     ax.grid(alpha=0.2)
 
 plt.tight_layout()
 
-path = FIG / "fig22_box_dimensions.png"
+path = FIG / "fig22_box_dimensions_en.png"
 plt.savefig(path, dpi=160)
 plt.close()
 

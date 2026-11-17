@@ -58,6 +58,8 @@ def main() -> None:
     ap.add_argument("--features", nargs="+",
                     default=["RGB_z", "IR_z", "RGB_edge", "IR_edge"],
                     choices=["RGB_z", "IR_z", "RGB_edge", "IR_edge"])
+    
+    ap.add_argument("--fig13-only", action="store_true")
     args = ap.parse_args()
     names = args.features
     FIG.mkdir(parents=True, exist_ok=True)
@@ -107,11 +109,13 @@ def main() -> None:
         for k, i in enumerate(ids):
             ax = axes[blk * 2 + k // 6, k % 6]
             ax.imshow(show_img(idx.iloc[i]))
-            ax.set_title(f"{idx.iloc[i]['stem']}  (sira {i - starts[ai]})", fontsize=9)
+            ax.set_title(f"{idx.iloc[i]['stem']}  (index {i - starts[ai]})", fontsize=9)
     plt.tight_layout()
-    plt.savefig(FIG / "fig13_prefix25_26_contact.png", dpi=110)
+    plt.savefig(FIG / "fig13_prefix25_26_contact_en.png", dpi=110)
     plt.close()
     print("(A) tamam: fig12, fig13")
+    if args.fig13_only:
+        return
 
     # ------------------------------------------------------------------ (B)
     F = {}

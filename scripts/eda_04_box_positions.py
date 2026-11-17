@@ -77,18 +77,18 @@ for ax, split in zip(axes, ["train", "test"]):
         cmap="viridis"
     )
 
-    ax.set_title(f"{split.upper()} - Kutu Merkezleri")
-    ax.set_xlabel("Normalize x merkezi")
-    ax.set_ylabel("Normalize y merkezi")
+    ax.set_title(f"{split.upper()} - Bounding Box Centers")
+    ax.set_xlabel("Normalized X Center")
+    ax.set_ylabel("Normalized Y Center")
     ax.set_xlim(0, 1)
     ax.set_ylim(1, 0)  # ust taraf yukarida gorunsun
 
     cbar = plt.colorbar(h[3], ax=ax)
-    cbar.set_label("Kutu sayisi")
+    cbar.set_label("Number of Boxes")
 
 plt.tight_layout()
 
-path = FIG / "fig23_box_positions.png"
+path = FIG / "fig23_box_positions_en.png"
 plt.savefig(path, dpi=160)
 plt.close()
 

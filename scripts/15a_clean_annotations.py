@@ -25,7 +25,7 @@ CIKTI:
 data/processed/boxes_cleaned.csv
 data/processed/removed_invalid_boxes.csv
 outputs/logs/step15a_cleaning_summary.json
-outputs/figures/fig31_annotations_before_after.png
+outputs/figures/fig31_annotations_before_after_en.png
 """
 
 from pathlib import Path
@@ -215,15 +215,15 @@ if len(removed) > 0:
             ax.set_ylim(crop.shape[0] - 0.5, -0.5)
             ax.set_aspect("equal", adjustable="box")
 
-            ax.set_title(
-                f"{stem} - {stage}"
-            )
+            stage_en = {"ONCE": "Before", "SONRA": "After"}[stage]
+            ax.set_title(f"{stem} - {stage_en}")
+            # f"{stem} - {stage}"
             ax.axis("off")
 
     fig.suptitle(
-        "Anotasyon Temizleme: Once ve Sonra\n"
-        "Kirmizi X: Gecersiz anotasyon | "
-        "Yesil: Gecerli kutu",
+        "Annotation Cleaning: Before and After\n"
+        "Red X: Invalid annotation | "
+        "Green: Valid bounding box",
         fontsize=13
     )
 
@@ -232,7 +232,7 @@ if len(removed) > 0:
     )
 
     fig_path = (
-        FIG / "fig31_annotations_before_after.png"
+        FIG / "fig31_annotations_before_after_en.png"
     )
 
     plt.savefig(fig_path, dpi=150)

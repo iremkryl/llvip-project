@@ -34,8 +34,8 @@ df = df[(df["rgb_ok"] == True) & (df["ir_ok"] == True)]
 fig, axes = plt.subplots(1, 2, figsize=(13, 5))
 
 for ax, column, title, color in [
-    (axes[0], "rgb_mean", "RGB Ortalama Parlaklik", "royalblue"),
-    (axes[1], "ir_mean", "IR Ortalama Yogunluk", "darkorange")
+    (axes[0], "rgb_mean", "RGB Mean Brightness", "royalblue"),
+    (axes[1], "ir_mean", "IR Mean Intensity", "darkorange")
 ]:
     values = df[column].dropna()
 
@@ -45,11 +45,11 @@ for ax, column, title, color in [
     median = values.median()
     ax.axvline(median, color="black",
                linestyle="--",
-               label=f"Medyan: {median:.2f}")
+               label=f"Median: {median:.2f}")
 
     ax.set_title(title)
-    ax.set_xlabel("Ortalama piksel yogunlugu (0-255)")
-    ax.set_ylabel("Goruntu sayisi")
+    ax.set_xlabel("Mean Pixel Intensity (0-255)")
+    ax.set_ylabel("Number of Images")
     ax.set_xlim(0, 255)
     ax.legend()
     ax.grid(alpha=0.2)
@@ -63,7 +63,7 @@ for ax, column, title, color in [
 
 plt.tight_layout()
 
-path = FIG / "fig20_rgb_ir_brightness.png"
+path = FIG / "fig20_rgb_ir_brightness_en.png"
 plt.savefig(path, dpi=160)
 plt.close()
 

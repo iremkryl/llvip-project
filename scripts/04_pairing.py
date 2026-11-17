@@ -94,7 +94,10 @@ def main() -> None:
         axes[0, j].imshow(rgb_img)
         axes[0, j].set_title(f"RGB {split}/{s}", fontsize=9)
         axes[1, j].imshow(ir_img, cmap="gray" if ir_img.mode == "L" else None)
-        axes[1, j].set_title(f"IR {split}/{s}  ({ir_img.mode}, {ir_img.size})", fontsize=9)
+        axes[1, j].set_title(
+            f"IR {split.upper()}/{s} ({ir_img.width} x {ir_img.height})",
+            fontsize=9
+        )
         axes[0, j].axis("off")
         axes[1, j].axis("off")
     plt.tight_layout()

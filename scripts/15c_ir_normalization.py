@@ -271,7 +271,7 @@ for i, (split, label, ex) in enumerate(examples):
         f"{ex['stem']} - NORMALIZED\n"
         f"p1={stats['raw_p1']:.1f} | "
         f"p99={stats['raw_p99']:.1f}\n"
-        f"Clipped=%"
+        f"Clipped="
         f"{stats['normalized_clipped_pct']:.1f}%",
         fontsize=10
     )
